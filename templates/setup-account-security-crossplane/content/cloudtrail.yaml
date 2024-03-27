@@ -1,0 +1,14 @@
+apiVersion: cloudtrail.aws.upbound.io/v1beta1
+kind: Trail
+metadata:
+  annotations:
+  labels:
+    testing.upbound.io/example-name: ${{ values.bucketName }}
+  name: ${{ values.trailName }}
+spec:
+  forProvider:
+    includeGlobalServiceEvents: false
+    region: ${{ values.region | dump }}
+    s3BucketNameSelector:
+      matchLabels:
+        testing.upbound.io/example-name: ${{ values.bucketName }}

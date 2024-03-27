@@ -1,0 +1,13 @@
+apiVersion: backstage.io/v1alpha1
+kind: Location
+metadata:
+    name: template-data
+    description: Approved templates for Backstage for AWS
+spec:
+    targets: 
+      - ./create-ec2-terraform/template.yaml
+      - ./create-github-repository/template.yaml
+      - ./game-2048-eks/template.yaml
+      - ./templates/backstage/create-vpc-crossplane
+    rules:
+        - allow: [Template]
